@@ -3,8 +3,6 @@
 import sys
 from itertools import groupby
 
-
-
 if __name__ == "__main__":
     file_in = sys.argv[1]
 
@@ -12,7 +10,7 @@ if __name__ == "__main__":
     with open(file_in, "r") as fh:
         lines = [line.strip() for line in fh.readlines()]
 
-    calories = [list(map(int, x)) for i, x in groupby(lines, key=lambda x: x != '') if i]
+    calories = [list(map(int, x)) for i, x in groupby(lines, key=lambda x: x != "") if i]
 
     sum_of_calories = [sum(x) for x in calories]
 

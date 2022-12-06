@@ -49,13 +49,13 @@ def calculate_score_2(game):
 
     score = 0
     if game[1] == "X":
-        selection = selections[selections.index(game[0])-1]
+        selection = selections[selections.index(game[0]) - 1]
     elif game[1] == "Y":
         score += 3
         selection = game[0]
     else:
         score += 6
-        selection = selections[(selections.index(game[0])+1) % len(selections)]
+        selection = selections[(selections.index(game[0]) + 1) % len(selections)]
 
     score += ord(selection) - ORD_A + 1
 

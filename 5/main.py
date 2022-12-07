@@ -6,7 +6,7 @@ from re import finditer, match
 
 
 def get_column_indices(lines):
-    """ Get the indices for the columns of crates. """
+    """Get the indices for the columns of crates."""
 
     # The column row is the first line with only spaces and digits.
     for index, line in enumerate(lines):
@@ -16,7 +16,7 @@ def get_column_indices(lines):
 
 
 def generate_crates(lines, row_index, columns):
-    """ Generate the crate columns ."""
+    """Generate the crate columns ."""
 
     crates = [[] for _ in range(len(columns))]
     for row in range(0, row_index):
@@ -29,7 +29,7 @@ def generate_crates(lines, row_index, columns):
 
 
 def print_crates(crates):
-    """ Help function to print the current status of crates. """
+    """Help function to print the current status of crates."""
 
     crates = deepcopy(crates)
     print_str = [" " + "   ".join(map(str, range(len(crates))))]
@@ -49,7 +49,7 @@ def print_crates(crates):
 
 
 def generate_moves(lines):
-    """ Generate moves from lines. """
+    """Generate moves from lines."""
 
     search_str = r"move (\d+) from (\d+) to (\d+)"
 
@@ -64,7 +64,7 @@ def generate_moves(lines):
 
 
 def perform_move_9000(move, crates):
-    """ Execute a move on the crates (CrateMover9000). """
+    """Execute a move on the crates (CrateMover9000)."""
 
     count = move[0]
     from_pile = move[1]
@@ -74,15 +74,16 @@ def perform_move_9000(move, crates):
         item = crates[from_pile].pop(0)
         crates[to_pile].insert(0, item)
 
+
 def perform_move_9001(move, crates):
-    """ Execute a move on the crates (CrateMover9001). """
+    """Execute a move on the crates (CrateMover9001)."""
 
     count = move[0]
     from_pile = move[1]
     to_pile = move[2]
 
     for index in range(count):
-        item = crates[from_pile].pop(count-1-index)
+        item = crates[from_pile].pop(count - 1 - index)
         crates[to_pile].insert(0, item)
 
 
